@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Roboto+Mono:wght@500&display=swap');
 
 body {
-    background-color: #444444;
+    background-color: #8f8f8f;
 }
 
 header {
@@ -17,7 +17,7 @@ header {
 footer {
     color: white;
     font-family: 'Roboto Mono', monospace;
-    letter-spacing: 0.3em;
+    letter-spacing: 0.1em;
     background-color: #22a59c;
     font-size: 25px;
 }
@@ -25,11 +25,41 @@ footer {
 nav {
     color: white;
     font-family: 'Roboto Mono', monospace;
-    font-size: 50px;
-    text-align: center;
-    letter-spacing: 0.3em;
+    font-size: 40px;
+    text-align: left;
+    padding: 14px, 16px;
+    letter-spacing: 0.1em;
     background-color: #22a59c;
+    position: sticky;
+    top: 0;
 }
+
+    nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    nav li {
+        float: left;
+    }
+
+    nav li a {
+        text-decoration: none;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+    }
+
+    nav li a:hover {
+        background-color: #1a756f;
+    }
+
+    nav li a:visited {
+        color: black;
+    }
 
 main {
     font-family: 'Kanit', sans-serif;
@@ -38,6 +68,7 @@ main {
     text-align: left;
     letter-spacing: .03em;
     background-color: #444444;
+    min-height: 100%;
 }
     img {
         align-content: end;
