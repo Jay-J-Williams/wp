@@ -14,7 +14,7 @@
   <body>
 
     <header>
-      <div>Lunardo Cinema <img src='../media/Lunardo-Logo.png' alt='Lunardo Cinema Logo'/></div>
+      <div>Lunardo <img src='../../media/Lunardo-Logo.png' alt='Lunardo Cinema Logo', width='100', height='100'/> Cinema</div>
     </header>
 
     <nav>
@@ -23,8 +23,7 @@
 
     <main>
       <article id='About Us'>
-    <!-- Creative Commons image sourced from https://pixabay.com/en/maintenance-under-construction-2422173/ and used for educational purposes only -->
-        <img src='../../media/website-under-construction.png' alt='Section related image' />
+        <img src='../../media/Lunardo-Logo.png' alt='Section related image', width='600', height='600'/>
         <p>"Short Description on Section."
       </article>
       <article id='Seats and Prices'>
