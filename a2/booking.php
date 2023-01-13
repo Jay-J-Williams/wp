@@ -30,9 +30,9 @@
     <!-- Creative Commons image sourced from https://pixabay.com/en/maintenance-under-construction-2422173/ and used for educational purposes only -->
         <img src='../../media/website-under-construction.png' alt='Website Under Construction' />
       </article>
-      <form action='booking.php' method='get'>
+      <form action='booking.php' method='post'>
           <p>Choose a Movie:</p>
-          <input type='radio' id='avatar' name='MovieChoice' value='Avatar>
+          <input type='radio' id='avatar' name='MovieChoice' value='Avatar'>
           <label for='avatar'>Avatar: The Way of Water</label><br>
           <input type='radio' id='weird' name='MovieChoice' value='Weird'>
           <label for='weird'>Weird: The Al Yankovic Story</label><br>
@@ -43,16 +43,41 @@
 
           <br>
           
-          <select name='SeatGroup' id='seatgroup'>
+          <select name='SeatGroup' id='seatgroup' required>
             <option value='select' disabled>Select a Seat Group</option>
-            <option value='standard_adult[STA]'>Standard Adult</option>
-            <option value='standard_concession[STP]'>Standard Concession</option>
-            <option value='standard_child[STC]'>Standard Child</option>
-            <option value='first_class_adult[FCA]'>First Class Adult</option>
-            <option value='first_class_concession[FCP]'>First Class Concession</option>
-            <option value='first_class_child[FCC]'>First Class Child</option>
+            <option value='seats[STA]'>Standard Adult</option>
+            <option value='seats[STP]'>Standard Concession</option>
+            <option value='seats[STC]'>Standard Child</option>
+            <option value='seats[FCA]'>First Class Adult</option>
+            <option value='seats[FCP]'>First Class Concession</option>
+            <option value='seats[FCC]'>First Class Child</option>
           </select>
-          <input type='submit' value="Add">
+          <select name='NumberOfSeats' id='number_of_seats' required>
+            <option value='select' disabled>Select Number of Seats</option>
+            <option value='1'>1</option>
+            <option value='2'>2</option>
+            <option value='3'>3</option>
+            <option value='4'>4</option>
+            <option value='5'>5</option>
+            <option value='6'>6</option>
+            <option value='7'>7</option>
+            <option value='8'>8</option>
+            <option value='9'>9</option>
+            <option value='10'>10</option>
+          </select>
+          <br>
+          <br>
+          <input type='radio' id='Mon-Tue' name='day' value='mon-tue'>
+          <label for='Mon-Tue'>Mondays and Tuesdays</label><br>
+          <input type='radio' id='Wed-Fri' name='day' value='wed-fri'>
+          <label for='Wed-Fri'>Wednesdays to Fridays</label><br>
+          <input type='radio' id='Sat-Sun' name='day' value='sat-sun'>
+          <label for='Sat-Sun'>Saturdays and Sundays</label><br>
+          <br>
+          <input type='text' name='user[name]' placeholder='Full Name' required>
+          <input type='text' name='user[email]' placeholder='Email' required>
+          <input type='text' name='user[mobile]' placeholder='Mobile Number' required>
+          <input type='submit' value="Submit">
       </form>
     </main>
     <footer>
