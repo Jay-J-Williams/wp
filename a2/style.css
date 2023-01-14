@@ -27,21 +27,21 @@ header img {
 footer {
     margin: 20px;
     padding: 20px;
-    color: white;
+    color: black;
     font-family: 'Roboto Mono', monospace;
     letter-spacing: 0.1em;
-    background-color: #22a59c;
+    background-color: #E8FCF7;
     font-size: 25px;
 }
 
 nav {
-    color: white;
+    color: black;
     font-family: 'Roboto Mono', monospace;
     font-size: 40px;
     text-align: left;
     padding: 14px 16px;
     letter-spacing: 0.1em;
-    background-color: #22a59c;
+    background-color: #E8FCF7;
     position: sticky;
     top: 0;
     margin-bottom: 10px;
@@ -69,11 +69,11 @@ nav {
     }
 
     nav li a:hover {
-        background-color: #1a756f;
+        background-color: #1F988A;
     }
 
     nav li a:visited {
-        color: black;
+        color: #444444;
     }
 
 main {
@@ -89,15 +89,15 @@ main {
     main img {
         background-color: #444444;
         max-width: 100%;
-        width: 300px;
-        height: 300px;
+        width: 800px;
+        height: 800px;
         margin: 10px;
         padding: 20px;
     }
 
     main article {
         background-color: #444444;
-        min-height: 100%;
+        min-height: 100vh;
     }
 
     main form {
@@ -111,6 +111,14 @@ main {
 #AboutUs {
     padding: 20px;
     text-align: center;
+}
+
+#SeatsAndPrices img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    height: 300px;
 }
 
 #NowShowing {
@@ -133,6 +141,9 @@ main {
 #SeatsAndPrices table {
     text-align: center;
     min-width: 50em;
+    min-height: 20em;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #SeatsAndPrices th {
@@ -141,11 +152,7 @@ main {
 }
 
 #SeatsAndPrices tr:nth-child(2n-1) {
-    background-color: #8f8f8f;
-}
-
-#SeatsAndPrices img {
-    max-width: 100%;
+    background-color: #242424;
 }
 
 .radio_btn input {
@@ -169,7 +176,7 @@ main {
 }
 
 .radio_btn :hover + label {
-    background-color: #22a59c;
+    background-color: #1F988A;
 }
 
 .radio_btn :checked + label {
@@ -184,4 +191,37 @@ select, input[type=text], input[type=email], input[type=number] {
     padding: 5px 10px;
     border: 1px solid black;
     cursor: pointer;
+}
+
+.AvatarFlip, .WeirdFlip, .PussInBootsFlip, .MargreteFlip {
+    background-color: transparent;
+    width: 600px;
+    height: 800px;
+    perspective: 1000px;
+}
+
+.AvatarInner, .WeirdInner, .PussInBootsInner, .MargreteInner {
+    width: 600px;
+    height: 800px;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.AvatarFlip :hover .AvatarInner, .WeirdFlip :hover .WeirdInner, .PussInBootsFlip :hover .PussInBootsInner, .MargreteFlip :hover .MargreteInner {
+    transform: rotateY(180deg);
+}
+
+.AvatarFront, .AvatarBack, .WeirdFront, .WeirdBack, .PussInBootsFront, .PussInBootsBack, .MargreteFront, .MargreteBack {
+    position: absolute;
+    width: 600px;
+    height: 800px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.AvatarBack, .WeirdBack, .PussInBootsBack, .MargreteBack {
+    background-color: #8f8f8f;
+    color: white;
+    transform: rotateY(180deg);
 }
