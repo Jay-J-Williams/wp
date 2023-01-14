@@ -85,7 +85,19 @@
       </article>
       <br>
       <article id='NowShowing'>
-      <p>Blah Blah Blah</p>
+      <img src='https://www.classification.gov.au/sites/default/files/styles/featured_image/public/2019-08/classification-m-square.png?itok=e3fazVbS' alt='M Rating Logo'/>
+      <img src='https://www.classification.gov.au/sites/default/files/styles/featured_image/public/2019-08/classification-m-square.png?itok=e3fazVbS' alt='M Rating Logo'/>
+      <br>
+          <span class='Posters'>
+              <img src='https://sportshub.cbsistatic.com/i/2022/11/21/4d1fe194-2496-4923-af07-11f47ca498bf/avatar-the-way-of-water-character-posters-1.jpg?auto=webp&width=608&height=900&crop=0.676:1,smart' alt='Avatar 2 Poster'/>
+              <img src='https://m.media-amazon.com/images/M/MV5BOWRiNmI1OTItYjc0Zi00YTYwLWI4OTEtMmE0YTNlODJkOTQwXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_FMjpg_UX1000_.jpg' alt='Weird Poster'/>
+              <br>
+              <img src='https://preview.redd.it/c4s42j0ykjc91.jpg?width=640&crop=smart&auto=webp&s=8129d59e62fbd6e0584626d66d2e052fb9b2ea01' alt='Puss in Boots Poster'/>
+              <img src='https://m.media-amazon.com/images/M/MV5BYmRiYjZiYzYtYzNkYy00N2MzLWJmZmItMTZjOGIyOGM5ZWViXkEyXkFqcGdeQXVyMjMyOTAzNjM@._V1_.jpg' alt='Margrete Poster'/>
+          </span>
+      <br>
+      <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Australian_Classification_Parental_Guidance_%28PG%29.svg/1200px-Australian_Classification_Parental_Guidance_%28PG%29.svg.png' alt='PG Rating Logo'/>
+      <img src='https://www.classification.gov.au/sites/default/files/styles/featured_image/public/2019-08/classification-ma15-square.png?itok=EGe6NmpV' alt='MA Rating Logo'/>
       </article>
     </main>
     <br><br>

@@ -39,7 +39,7 @@ nav {
     font-family: 'Roboto Mono', monospace;
     font-size: 40px;
     text-align: left;
-    padding: 14px, 16px;
+    padding: 14px 16px;
     letter-spacing: 0.1em;
     background-color: #22a59c;
     position: sticky;
@@ -92,6 +92,7 @@ main {
         width: 300px;
         height: 300px;
         margin: 10px;
+        padding: 20px;
     }
 
     main article {
@@ -100,13 +101,33 @@ main {
     }
 
     main form {
+        text-align: center;
+        margin-top: 20px;
         background-color: #444444;
         min-height: 100%;
+        padding: 20px;
     }
 
-#AboutUs img {
-    background-color: #444444;
+#AboutUs {
     padding: 20px;
+    text-align: center;
+}
+
+#NowShowing {
+    text-align: center;
+}
+
+#NowShowing img {
+    margin-right: 250px;
+    margin-left: 250px;
+    width: 150px;
+    height: 150px;
+}
+
+#NowShowing .Posters img {
+    margin: 10px;
+    width: 600px;
+    height: 800px;
 }
 
 #SeatsAndPrices table {
@@ -125,4 +146,42 @@ main {
 
 #SeatsAndPrices img {
     max-width: 100%;
+}
+
+.radio_btn input {
+    position: absolute;
+    opacity: 0;
+}
+
+.radio_btn label {
+    min-width: 15em;
+    text-align: center;
+    display: inline-block;
+    background-color: #8f8f8f;
+    border-radius: 1em;
+    border-bottom: solid 4px black;
+    border-right: solid 2px black;
+    padding: 10px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    vertical-align: bottom;
+    cursor: pointer;
+}
+
+.radio_btn :hover + label {
+    background-color: #22a59c;
+}
+
+.radio_btn :checked + label {
+    border-bottom: none;
+    border-right: none;
+}
+
+select, input[type=text], input[type=email], input[type=number] {
+    font-family: 'Kanit', sans-serif;
+    background-color: lightgrey;
+    min-width: 15em;
+    padding: 5px 10px;
+    border: 1px solid black;
+    cursor: pointer;
 }
