@@ -32,7 +32,7 @@
       </article>
       <form action='booking.php' method='post'>
           <p>Choose a Movie:</p>
-          <input type='radio' id='avatar' name='MovieChoice' value='Avatar'>
+          <input type='radio' checked="checked" id='avatar' name='MovieChoice' value='Avatar'>
           <label for='avatar'>Avatar: The Way of Water</label><br>
           <input type='radio' id='weird' name='MovieChoice' value='Weird'>
           <label for='weird'>Weird: The Al Yankovic Story</label><br>
@@ -42,15 +42,15 @@
           <label for='margrete'>Margrete: Queen of the North</label><br>
 
           <br>
-          
+          <p>Choose Seats:</p>
           <select name='SeatGroup' id='seatgroup' required>
             <option value='select' disabled>Select a Seat Group</option>
-            <option value='seats[STA]'>Standard Adult</option>
-            <option value='seats[STP]'>Standard Concession</option>
-            <option value='seats[STC]'>Standard Child</option>
-            <option value='seats[FCA]'>First Class Adult</option>
-            <option value='seats[FCP]'>First Class Concession</option>
-            <option value='seats[FCC]'>First Class Child</option>
+            <option value='seats[STA]', data-fullprice='21.50', data-discprice='16.00'>Standard Adult</option>
+            <option value='seats[STP]', data-fullprice='19.00', data-discprice='14.50'>Standard Concession</option>
+            <option value='seats[STC]', data-fullprice='17.50', data-discprice='13.00'>Standard Child</option>
+            <option value='seats[FCA]', data-fullprice='31.00', data-discprice='25.00'>First Class Adult</option>
+            <option value='seats[FCP]', data-fullprice='28.00', data-discprice='23.50'>First Class Concession</option>
+            <option value='seats[FCC]', data-fullprice='25.00', data-discprice='22.00'>First Class Child</option>
           </select>
           <select name='NumberOfSeats' id='number_of_seats' required>
             <option value='select' disabled>Select Number of Seats</option>
@@ -67,13 +67,23 @@
           </select>
           <br>
           <br>
-          <input type='radio' id='Mon-Tue' name='day' value='mon-tue'>
-          <label for='Mon-Tue'>Mondays and Tuesdays</label><br>
-          <input type='radio' id='Wed-Fri' name='day' value='wed-fri'>
-          <label for='Wed-Fri'>Wednesdays to Fridays</label><br>
-          <input type='radio' id='Sat-Sun' name='day' value='sat-sun'>
-          <label for='Sat-Sun'>Saturdays and Sundays</label><br>
+          <p>Choose Days:</p>
+          <input type='radio' checked="checked" id='Mon' name='day' value='mon'>
+          <label for='Mon'>Monday</label><br>
+          <input type='radio' id='Tue' name='day' value='tue'>
+          <label for='Tue'>Tuesday</label><br>
+          <input type='radio' id='Wed' name='day' value='wed'>
+          <label for='Wed'>Wednesday</label><br>
+          <input type='radio' id='Thu' name='day' value='thu'>
+          <label for='Thu'>Thursday</label><br>
+          <input type='radio' id='Fri' name='day' value='fri'>
+          <label for='Fri'>Friday<label><br>
+          <input type='radio' id='Sat' name='day' value='sat'>
+          <label for='Sat'>Saturday<label><br>
+          <input type='radio' id='Sun' name='day' value='sun'>
+          <label for='Sun'>Sunday<label><br>
           <br>
+          <p>Enter Contact Information:</p>
           <input type='text' name='user[name]' placeholder='Full Name' required>
           <input type='text' name='user[email]' placeholder='Email' required>
           <input type='text' name='user[mobile]' placeholder='Mobile Number' required>

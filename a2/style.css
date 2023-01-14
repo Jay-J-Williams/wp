@@ -1,20 +1,32 @@
 /* Insert your styles here */
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Roboto+Mono:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Michroma&family=Roboto+Mono:wght@500&display=swap');
 
 body {
     background-color: #8f8f8f;
 }
 
 header {
-    font-family: 'Kanit', sans-serif;
+    font-family: 'Michroma', sans-serif;
     color: white;
     letter-spacing: .03em;
     background-color: #444444;
     text-align: center;
     font-size: 120px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 10px;
+}
+
+header img {
+    max-height: 100px;
+    max-width: 100px;
+    padding: 10px;
 }
 
 footer {
+    margin: 20px;
+    padding: 20px;
     color: white;
     font-family: 'Roboto Mono', monospace;
     letter-spacing: 0.1em;
@@ -32,6 +44,9 @@ nav {
     background-color: #22a59c;
     position: sticky;
     top: 0;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
     nav ul {
@@ -64,12 +79,50 @@ nav {
 main {
     font-family: 'Kanit', sans-serif;
     color: white;
-    font-size: 20px;
-    text-align: left;
+    font-size: 30px;
+    margin: 10px;
+    padding: 10px;
     letter-spacing: .03em;
-    background-color: #444444;
-    min-height: 100%;
+    min-width: 60em;
 }
-    img {
-        align-content: end;
+
+    main img {
+        background-color: #444444;
+        max-width: 100%;
+        width: 300px;
+        height: 300px;
+        margin: 10px;
     }
+
+    main article {
+        background-color: #444444;
+        min-height: 100%;
+    }
+
+    main form {
+        background-color: #444444;
+        min-height: 100%;
+    }
+
+#AboutUs img {
+    background-color: #444444;
+    padding: 20px;
+}
+
+#SeatsAndPrices table {
+    text-align: center;
+    min-width: 50em;
+}
+
+#SeatsAndPrices th {
+    background-color: black;
+    padding: 10px;
+}
+
+#SeatsAndPrices tr:nth-child(2n-1) {
+    background-color: #8f8f8f;
+}
+
+#SeatsAndPrices img {
+    max-width: 100%;
+}
