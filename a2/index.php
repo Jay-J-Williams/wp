@@ -20,7 +20,9 @@
     <nav>
       <div>
         <ul>
-            <li><a href='booking.php'>BOOKING</a>
+            <li><a href='#AboutUs'>ABOUT US</a>
+            <li><a href='#SeatsAndPrices'>SEATS AND PRICES</a>
+            <li><a href='#NowShowing'>NOW SHOWING</a>
         </ul>
       </div>
     </nav>
@@ -85,62 +87,68 @@
       </article>
       <br>
       <article id='NowShowing'>
-        <img src='https://www.classification.gov.au/sites/default/files/styles/featured_image/public/2019-08/classification-m-square.png?itok=e3fazVbS' alt='M Rating Logo'/>
-        <img src='https://www.classification.gov.au/sites/default/files/styles/featured_image/public/2019-08/classification-m-square.png?itok=e3fazVbS' alt='M Rating Logo'/>
-        <br>
         <div class='Posters'>
             <div class='AvatarFlip'>
                 <div class='AvatarInner'>
                     <div class='AvatarFront'>
+                        <button class='FlipButtonAvatar'></button>
                         <img src='https://sportshub.cbsistatic.com/i/2022/11/21/4d1fe194-2496-4923-af07-11f47ca498bf/avatar-the-way-of-water-character-posters-1.jpg?auto=webp&width=608&height=900&crop=0.676:1,smart' alt='Avatar 2 Poster'/>
+                        <img id='AvatarRating' src='https://www.classification.gov.au/sites/default/files/styles/featured_image/public/2019-08/classification-m-square.png?itok=e3fazVbS' alt='M Rating Logo'/>
                     </div>
                     <div class='AvatarBack'>
                         <h1>Avatar: The Way of Water</h1>
                         <p>Jake Sully and Ney'tiri have formed a family and are doing everything to stay together. However, they must leave their home and explore the regions of Pandora. When an ancient threat resurfaces, Jake must fight a difficult war against the humans.</p>
-                        <p>Book Now Example</p>
+                        <br>
+                        <a href='booking.php?movie=ACT' class='BookNow' form='MovieCode' formmethod='get' formaction='booking.php'>Book Now</a>
                     </div>
                 </div>
             </div>
             <div class='WeirdFlip'>
                 <div class='WeirdInner'>
                     <div class='WeirdFront'>
+                        <button class='FlipButtonWeird'></button>
                         <img src='https://m.media-amazon.com/images/M/MV5BOWRiNmI1OTItYjc0Zi00YTYwLWI4OTEtMmE0YTNlODJkOTQwXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_FMjpg_UX1000_.jpg' alt='Weird Poster'/>
+                        <img id='WeirdRating' src='https://www.classification.gov.au/sites/default/files/styles/featured_image/public/2019-08/classification-m-square.png?itok=e3fazVbS' alt='M Rating Logo'/>
                     </div>
                     <div class='WeirdBack'>
                         <h1>Weird: The Al Yankovic Story</h1>
                         <p>The unexaggerated true story about the greatest musician of our time. From a conventional upbringing where playing the accordion was a sin, "Weird Al" Yankovic rebels and makes his dream of changing the words to world-renowned songs come true. An instant success and sex symbol, Al lives an excessive lifestyle and pursues an infamous romance that nearly destroys him.</p>
-                        <p>Book Now Example</p>
+                        <br>
+                        <a href='booking.php?movie=RMC' class='BookNow' form='MovieCode' formmethod='get' formaction='booking.php'>Book Now</a>
                     </div>
                 </div>
             </div>
             <div class='PussInBootsFlip'>
                 <div class='PussInBootsInner'>
                     <div class='PussInBootsFront'>
+                        <button class='FlipButtonPussInBoots'></button>
                         <img src='https://preview.redd.it/c4s42j0ykjc91.jpg?width=640&crop=smart&auto=webp&s=8129d59e62fbd6e0584626d66d2e052fb9b2ea01' alt='Puss in Boots Poster'/>
+                        <img id='PussInBootsRating' src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Australian_Classification_Parental_Guidance_%28PG%29.svg/1200px-Australian_Classification_Parental_Guidance_%28PG%29.svg.png' alt='PG Rating Logo'/>
                     </div>
                     <div class='PussInBootsBack'>
                         <h1>Puss in Boots: The Last Wish</h1>
                         <p>Puss in Boots discovers that his passion for adventure has taken its toll: he has burnt through eight of his nine lives. Puss sets out on an epic journey to find the mythical Last Wish and restore his nine lives.</p>
-                        <p>Book Now Example</p>
+                        <br>
+                        <a href='booking.php?movie=FAM' class='BookNow' form='MovieCode' formmethod='get' formaction='booking.php'>Book Now</a>
                     </div>
                 </div>
             </div>
             <div class='MargreteFlip'>
                 <div class='MargreteInner'>
                     <div class='MargreteFront'>
+                        <button class='FlipButtonMargrete'></button>
                         <img src='https://m.media-amazon.com/images/M/MV5BYmRiYjZiYzYtYzNkYy00N2MzLWJmZmItMTZjOGIyOGM5ZWViXkEyXkFqcGdeQXVyMjMyOTAzNjM@._V1_.jpg' alt='Margrete Poster'/>
+                        <img id='MargreteRating' src='https://www.classification.gov.au/sites/default/files/styles/featured_image/public/2019-08/classification-ma15-square.png?itok=EGe6NmpV' alt='MA Rating Logo'/>
                     </div>
                     <div class='MargreteBack'>
                         <h1>Margrete: Queen of the North</h1>
                             <p>The year is 1402, and a woman is at the head of a new Nordic empire. Margarete I has united Denmark, Norway and Sweden in a union that she rules single-handedly through her adopted son, King Erik. However, a conspiracy is afoot.</p>
-                            <p>Book Now Example</p>
+                            <br>
+                            <a href='booking.php?movie=AHF' class='BookNow' form='MovieCode' formmethod='get' formaction='booking.php'>Book Now</a>
                     </div>
                 </div>
             </div>
         </div>
-        <br>
-        <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Australian_Classification_Parental_Guidance_%28PG%29.svg/1200px-Australian_Classification_Parental_Guidance_%28PG%29.svg.png' alt='PG Rating Logo'/>
-        <img src='https://www.classification.gov.au/sites/default/files/styles/featured_image/public/2019-08/classification-ma15-square.png?itok=EGe6NmpV' alt='MA Rating Logo'/>
       </article>
     </main>
     <br><br>

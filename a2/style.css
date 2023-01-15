@@ -3,6 +3,8 @@
 
 body {
     background-color: #8f8f8f;
+    width: 100%;
+    height: 100%;
 }
 
 header {
@@ -11,7 +13,7 @@ header {
     letter-spacing: .03em;
     background-color: #444444;
     text-align: center;
-    font-size: 120px;
+    font-size: 7.5em;
     margin-top: 20px;
     margin-left: 20px;
     margin-right: 20px;
@@ -31,13 +33,13 @@ footer {
     font-family: 'Roboto Mono', monospace;
     letter-spacing: 0.1em;
     background-color: #E8FCF7;
-    font-size: 25px;
+    font-size: 1.5em;
 }
 
 nav {
     color: black;
     font-family: 'Roboto Mono', monospace;
-    font-size: 40px;
+    font-size: 2.5em;
     text-align: left;
     padding: 14px 16px;
     letter-spacing: 0.1em;
@@ -64,9 +66,8 @@ nav {
     nav li a {
         text-decoration: none;
         display: block;
-        color: white;
         text-align: center;
-        padding: 14px 16px;
+        padding: 14px 26px;
     }
 
     nav li a:hover {
@@ -74,13 +75,13 @@ nav {
     }
 
     nav li a:visited {
-        color: #444444;
+        color: #1F004D;
     }
 
 main {
     font-family: 'Kanit', sans-serif;
     color: white;
-    font-size: 30px;
+    font-size: 1.9em;
     margin: 10px;
     padding: 10px;
     letter-spacing: .03em;
@@ -124,6 +125,7 @@ main {
 
 #NowShowing {
     text-align: center;
+    padding: 20px;
 }
 
 #NowShowing img {
@@ -196,11 +198,24 @@ select, input[type=text], input[type=email], input[type=number] {
     cursor: pointer;
 }
 
+input[type=submit] {
+    color: white;
+    background-color: #242424;
+    min-width: 10em;
+    padding: 5px 10px;
+    border: 1px solid black;
+}
+
+#MovieCode {
+    visibility: hidden;
+}
+
 .AvatarFlip, .WeirdFlip, .PussInBootsFlip, .MargreteFlip {
     background-color: transparent;
     width: 600px;
-    height: 800px;
+    height: 950px;
     perspective: 1000px;
+    padding: 15px;
 }
 
 .AvatarInner, .WeirdInner, .PussInBootsInner, .MargreteInner {
@@ -210,10 +225,6 @@ select, input[type=text], input[type=email], input[type=number] {
     text-align: center;
     transition: transform 0.8s;
     transform-style: preserve-3d;
-}
-
-.AvatarFlip:hover .AvatarInner, .WeirdFlip:hover .WeirdInner, .PussInBootsFlip:hover .PussInBootsInner, .MargreteFlip:hover .MargreteInner {
-    transform: rotateY(180deg);
 }
 
 .AvatarFront, .AvatarBack, .WeirdFront, .WeirdBack, .PussInBootsFront, .PussInBootsBack, .MargreteFront, .MargreteBack {
@@ -231,10 +242,53 @@ select, input[type=text], input[type=email], input[type=number] {
     transform: rotateY(180deg);
 }
 
-.AvatarFlip, .AvatarFront, .AvatarBack, .PussInBootsFlip, .PussInBootsFront, .PussInBootsBack {
-    float: left;
+.Posters {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
 
-.WeirdFlip, .WeirdFront, .WeirdBack, .MargreteFlip, .MargreteFront, .MargreteBack {
-    float: right;
+@media screen and (max-width: 1024px) {
+    .Posters {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.FlipButtonAvatar, .FlipButtonWeird, .FlipButtonPussInBoots, .FlipButtonMargrete {
+    border: none;
+    position: absolute;
+    width: 600px;
+    height: 800px;
+    background-color: transparent;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.FlipButtonAvatar:focus .AvatarFlip .AvatarInner, .FlipButtonWeird:focus .WeirdFlip .WeirdInner, .FlipButtonPussInBoots:focus .PussInBootsFlip .PussInBootsInner, .FlipButtonMargrete:focus .MargreteFlip .MargreteInner {
+    transform: rotateY(180deg);
+}
+
+.Posters a {
+    text-decoration: none;
+    color: black;
+    width: 6em;
+    height: 2em;
+    background-color: #E8FCF7;
+    padding: 1em;
+}
+
+#NowShowing #AvatarRating, #NowShowing #WeirdRating, #NowShowing #PussInBootsRating, #NowShowing #MargreteRating {
+    width: 150px;
+    height: 150px;
+}
+
+.YTVideo {
+    height: 720px;
+    width: 1280px;
+    padding: 10px;
+}
+
+#ACTInfo, #RMCInfo, #FAMInfo, #AHFInfo {
+    text-align: center;
+    padding: 20px;
 }
