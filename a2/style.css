@@ -43,6 +43,7 @@ nav {
     letter-spacing: 0.1em;
     background-color: #E8FCF7;
     position: sticky;
+    z-index: 1;
     top: 0;
     margin-bottom: 10px;
     margin-left: 20px;
@@ -133,7 +134,8 @@ main {
 }
 
 #NowShowing .Posters img {
-    margin: 10px;
+    margin: 0px;
+    padding: 0px;
     width: 600px;
     height: 800px;
 }
@@ -164,7 +166,7 @@ main {
     min-width: 15em;
     text-align: center;
     display: inline-block;
-    background-color: #8f8f8f;
+    background-color: #242424;
     border-radius: 1em;
     border-bottom: solid 4px black;
     border-right: solid 2px black;
@@ -186,7 +188,8 @@ main {
 
 select, input[type=text], input[type=email], input[type=number] {
     font-family: 'Kanit', sans-serif;
-    background-color: lightgrey;
+    color: white;
+    background-color: #242424;
     min-width: 15em;
     padding: 5px 10px;
     border: 1px solid black;
@@ -201,27 +204,37 @@ select, input[type=text], input[type=email], input[type=number] {
 }
 
 .AvatarInner, .WeirdInner, .PussInBootsInner, .MargreteInner {
-    width: 600px;
-    height: 800px;
+    position: relative;
+    width: 100%;
+    height: 100%;
     text-align: center;
     transition: transform 0.8s;
     transform-style: preserve-3d;
 }
 
-.AvatarFlip :hover .AvatarInner, .WeirdFlip :hover .WeirdInner, .PussInBootsFlip :hover .PussInBootsInner, .MargreteFlip :hover .MargreteInner {
+.AvatarFlip:hover .AvatarInner, .WeirdFlip:hover .WeirdInner, .PussInBootsFlip:hover .PussInBootsInner, .MargreteFlip:hover .MargreteInner {
     transform: rotateY(180deg);
 }
 
 .AvatarFront, .AvatarBack, .WeirdFront, .WeirdBack, .PussInBootsFront, .PussInBootsBack, .MargreteFront, .MargreteBack {
     position: absolute;
-    width: 600px;
-    height: 800px;
+    width: 100%;
+    height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 }
 
 .AvatarBack, .WeirdBack, .PussInBootsBack, .MargreteBack {
-    background-color: #8f8f8f;
+    padding: 10px;
+    background-color: #242424;
     color: white;
     transform: rotateY(180deg);
+}
+
+.AvatarFlip, .AvatarFront, .AvatarBack, .PussInBootsFlip, .PussInBootsFront, .PussInBootsBack {
+    float: left;
+}
+
+.WeirdFlip, .WeirdFront, .WeirdBack, .MargreteFlip, .MargreteFront, .MargreteBack {
+    float: right;
 }
