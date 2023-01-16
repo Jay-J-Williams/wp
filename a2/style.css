@@ -20,6 +20,15 @@ header {
     padding: 10px;
 }
 
+main article h2 {
+    text-align: center;
+    font-family: 'Roboto Mono', monospace;
+}
+
+#SeatsAndPrices h2 {
+    padding-top: 50px;
+}
+
 header img {
     max-height: 100px;
     max-width: 100px;
@@ -116,11 +125,24 @@ main {
 }
 
 #SeatsAndPrices img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
     width: 300px;
     height: 300px;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: #242424;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-container > div {
+    width: 600px;
+    margin: 20px;
+    text-align: center;
+    line-height: 100px;
+    font-size: 40px;
 }
 
 #NowShowing {
@@ -148,6 +170,7 @@ main {
     min-height: 20em;
     margin-left: auto;
     margin-right: auto;
+    padding: 10px;
 }
 
 #SeatsAndPrices th {
@@ -206,7 +229,7 @@ input[type=submit] {
     border: 1px solid black;
 }
 
-#MovieCode {
+.MovieCode {
     visibility: hidden;
 }
 
@@ -252,6 +275,21 @@ input[type=submit] {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
     }
+    .flex-container {
+        display: flex;
+        flex-wrap: nowrap;
+        background-color: #242424;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .flex-container > div {
+            width: 300px;
+            margin: 10px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 20px;
+        }
 }
 
 .FlipButtonAvatar, .FlipButtonWeird, .FlipButtonPussInBoots, .FlipButtonMargrete {
@@ -264,14 +302,15 @@ input[type=submit] {
     backface-visibility: hidden;
 }
 
-.FlipButtonAvatar:focus .AvatarFlip .AvatarInner, .FlipButtonWeird:focus .WeirdFlip .WeirdInner, .FlipButtonPussInBoots:focus .PussInBootsFlip .PussInBootsInner, .FlipButtonMargrete:focus .MargreteFlip .MargreteInner {
+.AvatarFlip:hover .AvatarInner, .WeirdFlip:hover .WeirdInner, .PussInBootsFlip:hover .PussInBootsInner, .MargreteFlip:hover .MargreteInner {
     transform: rotateY(180deg);
 }
 
 .Posters a {
     text-decoration: none;
+    text-align: center;
     color: black;
-    width: 6em;
+    width: 7em;
     height: 2em;
     background-color: #E8FCF7;
     padding: 1em;
@@ -291,4 +330,8 @@ input[type=submit] {
 #ACTInfo, #RMCInfo, #FAMInfo, #AHFInfo {
     text-align: center;
     padding: 20px;
+}
+
+fieldset {
+    display: inline-block;
 }
