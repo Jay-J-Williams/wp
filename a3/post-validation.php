@@ -1,5 +1,7 @@
 <?php
 
+error_reporting( E_ERROR | E_WARNING | E_PARSE );
+
 /* Call this function in the booking page like so:
    $postErrors = validateBooking();
    If the array is empty, then no errors were generated
