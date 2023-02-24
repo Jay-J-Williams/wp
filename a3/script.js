@@ -13,7 +13,6 @@ for (let i = 0; i < variations.length; i++) {
     let spanfri = variations[i] + "SpanFri";
     let spansat = variations[i] + "SpanSat";
     let spansun = variations[i] + "SpanSun";
-    let info = variations[i] + "Info";
     if (variations[i] == "ACT" || variations[i] == "FAM") {
         if (!(window.location.toString().includes(variations[i]))) {
             document.getElementById(spanmon).remove();
@@ -23,7 +22,6 @@ for (let i = 0; i < variations.length; i++) {
             document.getElementById(spanfri).remove();
             document.getElementById(spansat).remove();
             document.getElementById(spansun).remove();
-            document.getElementById(info).remove();
         }
     }
 
@@ -34,7 +32,6 @@ for (let i = 0; i < variations.length; i++) {
             document.getElementById(spanfri).remove();
             document.getElementById(spansat).remove();
             document.getElementById(spansun).remove();
-            document.getElementById(info).remove();
         }
     }
 
@@ -44,7 +41,6 @@ for (let i = 0; i < variations.length; i++) {
             document.getElementById(spantue).remove();
             document.getElementById(spansat).remove();
             document.getElementById(spansun).remove();
-            document.getElementById(info).remove();
         }
     }
 }
@@ -99,28 +95,35 @@ if (window.location.toString().includes("index")) {
 // Booking Form Calculation
 
 if (window.location.toString().includes("booking")) {
-    var BookingForm = document.forms["BookingForm"];
-
     function GetSeatPrices() {
-        var selectedSeat = BookingForm.elements["seatgroup"];
-        const selectedSeatPrices = [selectedSeat.dataset.fullprice,
-        selectedSeat.dataset.discprice];
+        var BookingForm = document.forms["BookingForm"];
+        var selectedSeat = BookingForm.elements["SeatGroup"];
+        var x = selectedSeat.dataset.fullprice;
+        console.log(x);
+        const selectedSeatPrices = [selectedSeat.dataset.fullprice, selectedSeat.dataset.discprice];
+        console.log(selectedSeatPrices);
         return selectedSeatPrices;
     }
 
     function GetSeatCount() {
-        var selectedSeatCount = BookingForm.elements["number_of_seats"];
+        var BookingForm = document.forms["BookingForm"];
+        var selectedSeatCount = BookingForm.elements["NumberOfSeats"];
+        console.log(selectedSeatCount);
         var seatCount = selectedSeatCount.value;
+        console.log('Seat Count' + seatCount);
         return seatCount;
     }
 
     function GetDay() {
         selectedSeatPrices = GetSeatPrices();
-        var selectedDay = BookingForm.elements["radio_btn"];
+        console.log(selectedSeatPrices);
+        var BookingForm = document.forms["BookingForm"];
+        const selectedDay = BookingForm.elements["day"];
         for (var i = 0; i < selectedDay.length; i++) {
             if (selectedDay[i].checked) {
                 var priceType = selectedDay[i].dataset.pricing;
-                if (priceType == "fullprice") {
+                console.log(priceType);
+                if ("fullprice" == priceType) {
                     var finalSeatPrice = selectedSeatPrices[0];
                 }
                 else {
@@ -129,18 +132,14 @@ if (window.location.toString().includes("booking")) {
                 break;
             }
         }
+        console.log('Day total' + finalSeatPrice);
         return finalSeatPrice;
     }
 
     function CalculateTotal() {
-        var total = GetDay() * GetSeatCount();
+        var total = GetDay();
+        total *= GetSeatCount();
+        console.log(total);
         document.getElementById('total_price').innerHTML = "Total Price = $" + total;
-    }
-
-    document.getElementById('seatgroup').onclick = function () { CalculateTotal };
-    document.getElementById('number_of_seats').onclick = function () { CalculateTotal };
-    let radioBtns = document.getElementsByClassName('radio_btn');
-    for (var i = 0; i <= radioBtns.length; i++) {
-        radioBtns[i].onclick = function () { CalculateTotal };
     }
 }
