@@ -1,23 +1,7 @@
-<!DOCTYPE html>
-<html lang='en'>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Lunardo Booking Page</title>
-    <?php 
-        require_once 'tools.php';
-    ?>
-    <!-- Keep wireframe.css for debugging, add your css to style.css -->
-    <link id='wireframecss' type="text/css" rel="stylesheet" href="../wireframe.css" disabled>
-    <link id='stylecss' type='text/css' rel='stylesheet' href='style.css'>
-    <script src='../wireframe.js'></script>
-  </head>
-
-  <body>
-
-    <header>
-      <div>Lunardo <img src='../../media/Lunardo-Logo.png' alt='Lunardo Cinema Logo'>Cinema</div>
-    </header>
+<?php 
+	require_once 'tools.php';
+    createHeadAndHeader();
+?>
 
     <nav>
       <div>        
@@ -28,48 +12,10 @@
     </nav>
 
     <main>
-        <article id='ACTInfo'>
-            <iframe src="https://www.youtube.com/embed/d9MyW72ELq0" class='YTVideo' title="Avatar: The Way of Water | Official Trailer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <h1>Synopsis</h1>
-            <p>Jake Sully and Ney'tiri have formed a family and are doing everything to stay together. However, they must leave their home and explore the regions of Pandora. When an ancient threat resurfaces, Jake must fight a difficult war against the humans.</p>
-            <h1>Director</h1>
-            <p>James Cameron</p>
-            <h1>Main Cast</h1>
-            <p>Sam Worthington</p>
-            <p>Zoe Saldana</p>
-        </article>
-        <article id='RMCInfo'>
-            <iframe src="https://www.youtube.com/embed/Ols03gpTjW4" class='YTVideo' title="Weird: The Al Yankovic Story - Official Trailer (2022) Daniel Radcliffe, Quinta Brunson" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <h1>Synopsis</h1>
-            <p>The unexaggerated true story about the greatest musician of our time. From a conventional upbringing where playing the accordion was a sin, "Weird Al" Yankovic rebels and makes his dream of changing the words to world-renowned songs come true. An instant success and sex symbol, Al lives an excessive lifestyle and pursues an infamous romance that nearly destroys him.</p>
-            <h1>Director</h1>
-            <p>Eric Appel</p>
-            <h1>Main Cast</h1>
-            <p>Daniel Radcliffe</p>
-            <p>Evan Rachel Wood</p>
-            <p>"Weird Al" Yankovic</p>
-        </article>
-        <article id='FAMInfo'>
-            <iframe src="https://www.youtube.com/embed/Y5zqweZAEKI" class='YTVideo' title="PUSS IN BOOTS: THE LAST WISH | Official Trailer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <h1>Synopsis</h1>
-            <p>Puss in Boots discovers that his passion for adventure has taken its toll: he has burnt through eight of his nine lives. Puss sets out on an epic journey to find the mythical Last Wish and restore his nine lives.</p>
-            <h1>Director</h1>
-            <p>Joel Crawford</p>
-            <h1>Main Cast</h1>
-            <p>Antonio Banderas</p>
-            <p>Salma Hayek</p>
-        </article>
-        <article id='AHFInfo'>
-            <iframe src="https://www.youtube.com/embed/-7OCX98JgGk" class='YTVideo' title="Margrete Queen Of The North - Official Trailer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <h1>Synopsis</h1>
-            <p>The year is 1402, and a woman is at the head of a new Nordic empire. Margarete I has united Denmark, Norway and Sweden in a union that she rules single-handedly through her adopted son, King Erik. However, a conspiracy is afoot.</p>
-            <h1>Director</h1>
-            <p>Chalotte Sieling</p>
-            <h1>Main Cast</h1>
-            <p>Trine Dyrholm</p>
-            <p>Morten Hee Anderson</p>
-        </article>
-        <form action='booking.php' method='post'>
+        <?php
+            setMovieInfoSection();
+        ?>
+        <form action='booking.php' method='post' id='BookingForm'>
             <br>
             <fieldset>
                 <legend>Choose your Seat Group</legend>
@@ -212,16 +158,13 @@
                 <input type='submit' value="Submit">
             <br>
             </fieldset>
+            <p id='total_price'>Total Price = $0.00</p>
         </form>
+        
     </main>
-    <footer>
-      <div>&copy;<script>
-        document.write(new Date().getFullYear());
-      </script> Email: LunardoCinema@gmail.com, Phone: 555 555 555, Address: 2 Smith Road, Smithville.  Jay Meredith, S3951987, <a href=https://github.com/Jay-J-Williams/wp>GitHub Link</a>. Last modified <?= date ("Y F d  H:i", filemtime($_SERVER['SCRIPT_FILENAME'])); ?>.</div>
-      <div>Disclaimer: This website is not a real website and is being developed as part of a School of Science Web Programming course at RMIT University in Melbourne, Australia.</div>
-      <div><button id='toggleWireframeCSS' onclick='toggleWireframe()'>Toggle Wireframe CSS</button></div>
-      <script src='script.js'></script>
-    </footer>
+    <?php
+        createFooter();
+    ?>
 
     <footer>
         <h3>Debug Area</h3>

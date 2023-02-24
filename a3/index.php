@@ -1,23 +1,7 @@
-<!DOCTYPE html>
-<html lang='en'>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Lunardo Home Page</title>
-    <?php 
-        require_once 'tools.php';
-    ?>
-    <!-- Keep wireframe.css for debugging, add your css to style.css -->
-    <link id='wireframecss' type="text/css" rel="stylesheet" href="../wireframe.css" disabled>
-    <link id='stylecss' type='text/css' rel='stylesheet' href='style.css'>
-    <script src='../wireframe.js'></script>
-  </head>
-
-  <body>
-
-    <header>
-      <div>Lunardo <img src='../../media/Lunardo-Logo.png' alt='Lunardo Cinema Logo'>Cinema</div>
-    </header>
+<?php 
+	require_once 'tools.php';
+    createHeadAndHeader();
+?>
 
     <nav>
       <div>
@@ -199,7 +183,11 @@
     <footer>
         <h3>Debug Area</h3>
         <?php 
-            debugModule();
+            try {
+                debugModule();
+            } catch(Error $e) {
+                echo "tools.php is unavailable";
+            }
         ?>
     </footer>
 
