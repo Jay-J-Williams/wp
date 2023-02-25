@@ -6,9 +6,9 @@
     <nav>
       <div>
         <ul>
-            <li><a href='#AboutUs' id='AboutUsNavBtn'>ABOUT US</a>
-            <li><a href='#SeatsAndPrices' id='SeatsAndPricesNavBtn'>SEATS AND PRICES</a>
-            <li><a href='#NowShowing' id='NowShowingNavBtn'>NOW SHOWING</a>
+            <li><a href='#AboutUs' id='AboutUsLink' onclick='LinkColorChange("#AboutUs")'>ABOUT US</a>
+            <li><a href='#SeatsAndPrices' id='SeatsAndPricesLink' onclick='LinkColorChange("#SeatsAndPrices")'>SEATS AND PRICES</a>
+            <li><a href='#NowShowing' id='NowShowingLink' onclick='LinkColorChange("#NowShowing")'>NOW SHOWING</a>
         </ul>
       </div>
     </nav>

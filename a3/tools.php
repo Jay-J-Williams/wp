@@ -4,7 +4,6 @@
 	/* Remember to use require_once at the top of the page to include this file in the index.php file */
 	/* Go through the website and create functions to eliminate code duplication (Look at !Doctype, Nav, Movie Panels, Options, and the end of the page) */
 	/* Create a Movies Class that uses a foreach loop to extract the days and time the movie plays from the screenings array (ref.Workshop, Solutions W9) */
-	/* Use Window Location Includes #Section to solve the JS clicking issue if things fail */
 	/* Look at the debug module code for removal of duplication too */
 
 	// Code Duplication Elimination
@@ -179,8 +178,11 @@
 		}
 			// Booking -> Index Redirection
 		if ($validation == 4 && !$_GET['movie']=='AHF') {
-			header("Location: index.php");
-			exit();
+			if (count($_POST) == 0) {
+				header("Location: index.php");
+				exit();
+			}
+			// Write an else clause here to redirect to the receipt page
 		}
 	}
 

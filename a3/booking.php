@@ -15,7 +15,8 @@
         <?php
             setMovieInfoSection();
         ?>
-        <form action='booking.php' method='post' id='BookingForm'>
+        <form action='booking.php' method='post' id='BookingForm' onsubmit="return ValidateForm()">
+            <input type='hidden' name='movie' value=<?php $code = $_GET['movie']; echo "'$code'"; ?>>
             <br>
             <fieldset>
                 <legend>Choose your Seat Group</legend>
@@ -80,7 +81,7 @@
                 </span>
                 <!-- RMC Sessions -->
                 <span class='radio_btn' id='RMCSpanWed'>
-                    <input type='radio' id='RMCWed' name='day' value='wed' data-pricing='discprice' onclick='CalculateTotal()'>
+                    <input type='radio' checked="checked" id='RMCWed' name='day' value='wed' data-pricing='discprice' onclick='CalculateTotal()'>
                     <label for='RMCWed' id='RMCWedLabel'>Wednesday 12pm</label><br>
                 </span>
                 <span class='radio_btn' id='RMCSpanThu'>
@@ -153,7 +154,7 @@
                 <br>
                 <input type='email' name='user[email]' placeholder='Email' required>
                 <br>
-                <input type='number' name='user[mobile]' placeholder='Mobile Number' required>
+                <input type='tel' name='user[mobile]' placeholder='Mobile Number' required>
                 <br>
                 <input type='submit' value="Submit">
             <br>

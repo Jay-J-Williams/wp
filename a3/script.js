@@ -1,96 +1,97 @@
 // Booking Page Variations
+if (window.location.toString().includes("booking")) {
+    let variation1 = 'ACT';
+    let variation2 = 'RMC';
+    let variation3 = 'FAM';
+    let variation4 = 'AHF';
+    const variations = [variation1, variation2, variation3, variation4];
+    for (let i = 0; i < variations.length; i++) {
+        let spanmon = variations[i] + "SpanMon";
+        let spantue = variations[i] + "SpanTue";
+        let spanwed = variations[i] + "SpanWed";
+        let spanthu = variations[i] + "SpanThu";
+        let spanfri = variations[i] + "SpanFri";
+        let spansat = variations[i] + "SpanSat";
+        let spansun = variations[i] + "SpanSun";
+        if (variations[i] == "ACT" || variations[i] == "FAM") {
+            if (!(window.location.toString().includes(variations[i]))) {
+                document.getElementById(spanmon).remove();
+                document.getElementById(spantue).remove();
+                document.getElementById(spanwed).remove();
+                document.getElementById(spanthu).remove();
+                document.getElementById(spanfri).remove();
+                document.getElementById(spansat).remove();
+                document.getElementById(spansun).remove();
+            }
+            else {
+                if (variations[i] == "ACT") {
+                    document.getElementById("ACTMon").checked = false;
+                }
+                else {
+                    document.getElementById("FAMMon").checked = false;
+                }
+            }
+        }
 
-let variation1 = 'ACT';
-let variation2 = 'RMC';
-let variation3 = 'FAM';
-let variation4 = 'AHF';
-const variations = [variation1, variation2, variation3, variation4];
-for (let i = 0; i < variations.length; i++) {
-    let spanmon = variations[i] + "SpanMon";
-    let spantue = variations[i] + "SpanTue";
-    let spanwed = variations[i] + "SpanWed";
-    let spanthu = variations[i] + "SpanThu";
-    let spanfri = variations[i] + "SpanFri";
-    let spansat = variations[i] + "SpanSat";
-    let spansun = variations[i] + "SpanSun";
-    if (variations[i] == "ACT" || variations[i] == "FAM") {
-        if (!(window.location.toString().includes(variations[i]))) {
-            document.getElementById(spanmon).remove();
-            document.getElementById(spantue).remove();
-            document.getElementById(spanwed).remove();
-            document.getElementById(spanthu).remove();
-            document.getElementById(spanfri).remove();
-            document.getElementById(spansat).remove();
-            document.getElementById(spansun).remove();
+        else if (variations[i] == "RMC") {
+            if (!(window.location.toString().includes(variations[i]))) {
+                document.getElementById(spanwed).remove();
+                document.getElementById(spanthu).remove();
+                document.getElementById(spanfri).remove();
+                document.getElementById(spansat).remove();
+                document.getElementById(spansun).remove();
+            }
+            else {
+                document.getElementById("RMCWed").checked = false;
+            }
+        }
+
+        else {
+            if (!(window.location.toString().includes(variations[i]))) {
+                document.getElementById(spanmon).remove();
+                document.getElementById(spantue).remove();
+                document.getElementById(spansat).remove();
+                document.getElementById(spansun).remove();
+            }
+            else {
+                document.getElementById("AHFMon").checked = false;
+            }
         }
     }
 
-    else if (variations[i] == "RMC") {
-        if (!(window.location.toString().includes(variations[i]))) {
-            document.getElementById(spanwed).remove();
-            document.getElementById(spanthu).remove();
-            document.getElementById(spanfri).remove();
-            document.getElementById(spansat).remove();
-            document.getElementById(spansun).remove();
-        }
-    }
-
-    else {
-        if (!(window.location.toString().includes(variations[i]))) {
-            document.getElementById(spanmon).remove();
-            document.getElementById(spantue).remove();
-            document.getElementById(spansat).remove();
-            document.getElementById(spansun).remove();
-        }
-    }
 }
 
 // Nav Button Click Changes
-/*
-if (window.location.toString().includes("index")) {
-    let ClickedBtnColor = "orange";
-    let DefaultBtnColor = document.getElementById(AboutUsNavBtn).style.color;
-    if (window.location.toString().includes("AboutUs")) {
-        ChangeNavBtnGroupColor(AboutUsNavBtn, SeatsAndPricesNavBtn, NowShowingNavBtn);
-    }
-    else if (window.location.toString().include("SeatsAndPrices")) {
-        ChangeNavBtnGroupColor(SeatsAndPricesNavBtn, AboutUsNavBtn, NowShowingNavBtn);
-    }
-    else if (window.location.toString().include("NowShowing")) {
-        ChangeNavBtnGroupColor(NowShowingNavBtn, AboutUsNavBtn, SeatsAndPricesNavBtn);
-    }
-    
-    document.getElementById(AboutUsNavBtn).onclick = function () { NavBtnOnClick(AboutUsNavBtn) };
-    document.getElementById(SeatsAndPricesNavBtn).onclick = function () { NavBtnOnClick(SeatsAndPricesNavBtn) };
-    document.getElementById(NowShowingNavBtn).onclick = function () { NavBtnOnClick(NowShowingNavBtn) };
 
-    function NavBtnOnClick(Btn) {
-        document.getElementById(Btn).style.color = ClickedBtnColor;
-        document.getElementById(Btn).style.color.visited = ClickedBtnColor;
-        if (Btn == AboutUsNavBtn) {
-            RemoveClickedNavBtnColor(SeatsAndPricesNavBtn);
-            RemoveClickedNavBtnColor(NowShowingNavBtn);
+if (window.location.toString().includes("index")) {
+    var newColor = "orange";
+    function LinkColorChange(link) {
+        if (link == "#AboutUs") {
+            aboutUs = document.getElementById("AboutUsLink");
+            nowShowing = document.getElementById("NowShowingLink");
+            seatsAndPrices = document.getElementById("SeatsAndPricesLink");
+            aboutUs.style.color = newColor;
+            nowShowing.style.color = 'black';
+            seatsAndPrices.style.color = 'black';
         }
-        else if (Btn == SeatsAndPricesNavBtn) {
-            RemoveClickedNavBtnColor(AboutUsNavBtn);
-            RemoveClickedNavBtnColor(NowShowingNavBtn);
+        else if (link == "#SeatsAndPrices") {
+            aboutUs = document.getElementById("AboutUsLink");
+            nowShowing = document.getElementById("NowShowingLink");
+            seatsAndPrices = document.getElementById("SeatsAndPricesLink");
+            seatsAndPrices.style.color = newColor;
+            aboutUs.style.color = 'black';
+            nowShowing.style.color = 'black';
         }
-        else if (Btn == NowShowingNavBtn) {
-            RemoveClickedNavBtnColor(AboutUsNavBtn);
-            RemoveClickedNavBtnColor(SeatsAndPricesNavBtn);
+        else if (link == "#NowShowing") {
+            aboutUs = document.getElementById("AboutUsLink");
+            nowShowing = document.getElementById("NowShowingLink");
+            seatsAndPrices = document.getElementById("SeatsAndPricesLink");
+            nowShowing.style.color = newColor;
+            aboutUs.style.color = 'black';
+            seatsAndPrices.style.color = 'black';
         }
-    }
-    function ChangeNavBtnColor(Btn, Color) {
-        document.getElementById(Btn).style.backgroundColor = Color;
-        document.getElementById(Btn).style.backgroundColor.visited = Color;
-    }
-    function ChangeNavBtnGroupColor(Btn1, Btn2, Btn3) {
-        ChangeNavBtnColor(Btn1, ClickedBtnColor);
-        ChangeNavBtnColor(Btn2, DefaultBtnColor);
-        ChangeNavBtnColor(Btn3, DefaultBtnColor);
     }
 }
-*/
 
 // Booking Form Calculation
 
@@ -167,10 +168,43 @@ if (window.location.toString().includes("booking")) {
         var seatCount = GetSeatCount();
         var total = seatPrice * seatCount;
         var totalMessage = total.toString();
+        if (totalMessage.includes(".5")) {
+            totalMessage += "0";
+        }
         if (!(totalMessage.includes("."))) {
-            totalMessage += ".00";
+            totalMessage +=".00";
         }
         document.getElementById('total_price').innerHTML = "Total Price = $" + totalMessage;
+    }
+
+    function ValidateForm() {
+        console.log("startedValidation");
+        var code = document.forms['BookingForm']['movie'].value;
+        const movieCodes = ['ACT', 'RMC', 'FAM', 'AHF'];
+        if (code == 'code') {
+            code = movieCodes[0];
+        }
+        /*
+        for (var i = 0; i < 4; i++) {
+            if (window.location.toString().includes(movieCodes[i])) {
+                code.value = movieCodes[i];
+                break;
+            }
+        }
+        /*
+        var nameInput = document.forms['BookingForm']['user[name]'].value;
+        console.log(nameInput);
+        var mobileInput = document.forms['BookingForm']['user[mobile]'].value;
+        const nameRegex = "^[-A-Za-z '.]{1,64}$";
+        let nameTest = nameInput.match(nameRegex);
+        if (nameTest) {
+            console.log('success');
+        }
+        else {
+            console.log('fail');
+        }
+        */
+
     }
 
 }

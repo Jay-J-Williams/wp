@@ -73,6 +73,7 @@ nav {
     }
 
     nav li a {
+        color: black;
         text-decoration: none;
         display: block;
         text-align: center;
@@ -84,7 +85,7 @@ nav {
     }
 
 nav li a:visited {
-    background-color: inherit;
+    color: black;
 }
 
 main {
@@ -211,7 +212,7 @@ main {
     border-right: none;
 }
 
-select, input[type=text], input[type=email], input[type=number] {
+select, input[type=text], input[type=email], input[type=tel] {
     font-family: 'Kanit', sans-serif;
     color: white;
     background-color: #242424;
