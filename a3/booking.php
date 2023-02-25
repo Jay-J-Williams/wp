@@ -1,5 +1,6 @@
 <?php 
 	require_once 'tools.php';
+    require_once 'post-validation.php';
     createHeadAndHeader();
 ?>
 
@@ -15,7 +16,7 @@
         <?php
             setMovieInfoSection();
         ?>
-        <form action='booking.php' method='post' id='BookingForm' onsubmit="return ValidateForm()">
+        <form action='booking.php' method='post' id='BookingForm'> <!-- onsubmit="return ValidateForm()"> -->
             <input type='hidden' name='movie' value=<?php $code = $_GET['movie']; echo "'$code'"; ?>>
             <br>
             <fieldset>
@@ -170,11 +171,15 @@
     <footer>
         <h3>Debug Area</h3>
         <?php 
-            try {
+            /*try {*/
                 debugModule();
+                echo "<br><br>";
+                $postErrors = validateBooking();
+                echo "Error ";
+                print_r($postErrors);/*
             } catch(Error $e) {
                 echo "tools.php is unavailable";
-            }
+            }*/
         ?>
     </footer>
 

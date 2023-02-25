@@ -178,33 +178,21 @@ if (window.location.toString().includes("booking")) {
     }
 
     function ValidateForm() {
-        console.log("startedValidation");
-        var code = document.forms['BookingForm']['movie'].value;
-        const movieCodes = ['ACT', 'RMC', 'FAM', 'AHF'];
-        if (code == 'code') {
-            code = movieCodes[0];
-        }
-        /*
-        for (var i = 0; i < 4; i++) {
-            if (window.location.toString().includes(movieCodes[i])) {
-                code.value = movieCodes[i];
-                break;
-            }
-        }
-        /*
         var nameInput = document.forms['BookingForm']['user[name]'].value;
         console.log(nameInput);
         var mobileInput = document.forms['BookingForm']['user[mobile]'].value;
         const nameRegex = "^[-A-Za-z '.]{1,64}$";
+        const mobileRegex = "^61[0-9]{2}[0-9]{6}$";
         let nameTest = nameInput.match(nameRegex);
-        if (nameTest) {
-            console.log('success');
+        if (!nameTest) {
+            alert('Full name must not include any numbers or special characters, and must be between 1 and 64 characters');
+            return false;
         }
-        else {
-            console.log('fail');
+        let mobileTest = mobileInput.match(mobileRegex);
+        if (!mobileTest) {
+            alert('Enter Mobile in the Australian format e.g. 6155222000');
+            return false;
         }
-        */
-
     }
 
 }
