@@ -167,13 +167,21 @@
 		$margrete->main_cast = 'Trine Dyrholm|Morten Hee Anderson';
 
 		$get_code = $_GET['movie'];
+		$validation = 0;
 		$movie_arr = array($avatar, $weird, $puss_in_boots, $margrete);
 		foreach ($movie_arr as $movie) {
 			if ($_GET['movie'] == $movie->code) {
 				$movie -> createMovieInfoSection();
 			}
+			else {
+				$validation+= 1;
+			}
 		}
-
+			// Booking -> Index Redirection
+		if ($validation == 4 && !$_GET['movie']=='AHF') {
+			header("Location: index.php");
+			exit();
+		}
 	}
 
 	// Useful Functions

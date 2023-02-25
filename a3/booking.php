@@ -19,7 +19,7 @@
             <br>
             <fieldset>
                 <legend>Choose your Seat Group</legend>
-                <select name='SeatGroup' id='seatgroup'>
+                <select name='SeatGroup' id='seatgroup' onclick='CalculateTotal()'>
                 <option value='select' disabled>Select a Seat Group</option>
                 <option value='seats[STA]' data-fullprice='21.50' data-discprice='16.00'>Standard Adult</option>
                 <option value='seats[STP]' data-fullprice='19.00' data-discprice='14.50'>Standard Concession</option>
@@ -31,7 +31,7 @@
             </fieldset>
             <fieldset>
                 <legend>Choose the Number of Seats</legend>
-                <select name='NumberOfSeats' id='number_of_seats'>
+                <select name='NumberOfSeats' id='number_of_seats' onclick='CalculateTotal()'>
                 <option value='select' disabled>Select Number of Seats</option>
                 <option value='1'>1</option>
                 <option value='2'>2</option>
@@ -158,7 +158,7 @@
                 <input type='submit' value="Submit">
             <br>
             </fieldset>
-            <p id='total_price'>Total Price = $0.00</p>
+            <p id='total_price'>Total Price = $</p>
         </form>
         
     </main>

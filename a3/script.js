@@ -96,50 +96,81 @@ if (window.location.toString().includes("index")) {
 
 if (window.location.toString().includes("booking")) {
     function GetSeatPrices() {
+        priceType = GetDay();
         var BookingForm = document.forms["BookingForm"];
-        var selectedSeat = BookingForm.elements["SeatGroup"];
-        var x = selectedSeat.dataset.fullprice;
-        console.log(x);
-        const selectedSeatPrices = [selectedSeat.dataset.fullprice, selectedSeat.dataset.discprice];
-        console.log(selectedSeatPrices);
-        return selectedSeatPrices;
+        var selectedSeatGroup = BookingForm.elements["SeatGroup"];
+        var seatCode = selectedSeatGroup.value;
+        switch (seatCode) {
+            case 'seats[STA]':
+                fullprice = 21.50;
+                discprice = 16.00;
+                break;
+
+            case 'seats[STP]':
+                fullprice = 19.00;
+                discprice = 14.50;
+                break;
+
+            case 'seats[STC]':
+                fullprice = 17.50;
+                discprice = 13.00;
+                break;
+
+            case 'seats[FCA]':
+                fullprice = 31.00;
+                discprice = 25.00;
+                break;
+
+            case 'seats[FCP]':
+                fullprice = 28.00;
+                discprice = 23.50;
+                break;
+
+            case 'seats[FCC]':
+                fullprice = 25.00;
+                discprice = 22.00;
+                break;
+
+            default:
+                fullprice = 0.00;
+                discprice = 0.00;
+        }
+        if (priceType == 'fullprice') {
+            var seatPrice = fullprice;
+        }
+        else {
+            var seatPrice = discprice;
+        }
+        return seatPrice;
     }
 
     function GetSeatCount() {
         var BookingForm = document.forms["BookingForm"];
         var selectedSeatCount = BookingForm.elements["NumberOfSeats"];
-        console.log(selectedSeatCount);
         var seatCount = selectedSeatCount.value;
-        console.log('Seat Count' + seatCount);
         return seatCount;
     }
 
     function GetDay() {
-        selectedSeatPrices = GetSeatPrices();
-        console.log(selectedSeatPrices);
         var BookingForm = document.forms["BookingForm"];
         const selectedDay = BookingForm.elements["day"];
         for (var i = 0; i < selectedDay.length; i++) {
             if (selectedDay[i].checked) {
                 var priceType = selectedDay[i].dataset.pricing;
-                console.log(priceType);
-                if ("fullprice" == priceType) {
-                    var finalSeatPrice = selectedSeatPrices[0];
-                }
-                else {
-                    var finalSeatPrice = selectedSeatPrices[1];
-                }
-                break;
             }
         }
-        console.log('Day total' + finalSeatPrice);
-        return finalSeatPrice;
+        return priceType;
     }
 
     function CalculateTotal() {
-        var total = GetDay();
-        total *= GetSeatCount();
-        console.log(total);
-        document.getElementById('total_price').innerHTML = "Total Price = $" + total;
+        var seatPrice = GetSeatPrices();
+        var seatCount = GetSeatCount();
+        var total = seatPrice * seatCount;
+        var totalMessage = total.toString();
+        if (!(totalMessage.includes("."))) {
+            totalMessage += ".00";
+        }
+        document.getElementById('total_price').innerHTML = "Total Price = $" + totalMessage;
     }
+
 }
