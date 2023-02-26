@@ -336,3 +336,12 @@ input[type=submit] {
 fieldset {
     display: inline-block;
 }
+
+.error {
+    font-size: 14px;
+    font-weight: bold;
+    display: none;
+    color: black;
+    padding: 10px; 
+    background-color: white;
+}

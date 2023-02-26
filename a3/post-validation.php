@@ -16,7 +16,7 @@ function validateBooking() {
         $errors['user']['name'] = "Name can't be blank";
     } else {
         if ( strlen($username) > 64) {
-            $errors['user']['name'] = "Name can't be longer than 64 characters'";
+            $errors['user']['name'] = "Name can't be longer than 64 characters";
         } else {
             if (!preg_match($usernameRegex, $username)) {
                 $errors['user']['name'] = "Name can't contain numbers or special characters";
@@ -59,7 +59,7 @@ function validateBooking() {
           }
       }
       if (!$movieCodePassed) {
-          echo "<script>window.location.replace('http://localhost/~s3951987/wp/a3/index.php');</script>";
+          header('location: index.php');
           exit();
       }
       if (isset($_POST['day'])) {
@@ -77,7 +77,7 @@ function validateBooking() {
               }
           }
           if (!$dayPassed) {
-              echo "<script>window.location.replace('http://localhost/~s3951987/wp/a3/index.php');</script>";
+          header('location: index.php');
               exit();
           }
       }
@@ -91,27 +91,62 @@ function validateBooking() {
           }
       }
       if (!$seatGroupPassed) {
-          echo "<script>window.location.replace('http://localhost/~s3951987/wp/a3/index.php');</script>";
+          header('location: index.php');
           exit();
       }
   }
   if (isset($_POST['NumberOfSeats'])) {
       if ($_POST['NumberOfSeats'] == '') {
-          echo "<script>window.location.replace('http://localhost/~s3951987/wp/a3/index.php');</script>";
+          header('location: index.php');
           exit();
       } else {
           $numberOfSeats = $_POST['NumberOfSeats'];
           intval($numberOfSeats);
           if ($numberOfSeats < 0 || $numberOfSeats > 10) {
-              echo "<script>window.location.replace('http://localhost/~s3951987/wp/a3/index.php');</script>";
+              header('location: index.php');
               exit();
           }
       }
   }
-
+  if (isset($_POST['user']) && count($_POST['user']) == 0) {
+      unset($_POST['user']);
+  }
+  if (count($errors) == 0 && count($_POST) > 0) {
+          $_SESSION['Booking'] = $_POST;
+          header('location: receipt.php');
+  }
   return $errors;
 }
 
+function preFillText($type) {
+    if (isset($_POST['user'][$type])) {
+        $value = $_POST['user'][$type];
+        echo "$value";
+    }
+}
 
+function preFillRadio($day) {
+    if (isset($_POST['day']) && $_POST['day'] == $day) {
+        echo "checked = 'checked'";
+    } elseif (isset($_GET['movie'])) {
+        if ($_GET['movie'] == 'RMC') {
+            if ($day == 'wed') {
+                echo "checked = 'checked'";
+                $_POST['day'] = 'wed';
+            }
+        } else {
+            if ($day == 'mon') {
+                echo "checked = 'checked'";
+                $_POST['day'] = 'mon';
+            }
+        }
+    }
+}
+
+function preFillSelect($selectname, $value) {
+    if (isset($_POST[$selectname]) && $_POST[$selectname] == $value) {
+        echo "selected = 'selected'";
+    }
+}
 
 ?>

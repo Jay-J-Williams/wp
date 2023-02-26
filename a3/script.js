@@ -23,14 +23,6 @@ if (window.location.toString().includes("booking")) {
                 document.getElementById(spansat).remove();
                 document.getElementById(spansun).remove();
             }
-            else {
-                if (variations[i] == "ACT") {
-                    document.getElementById("ACTMon").checked = false;
-                }
-                else {
-                    document.getElementById("FAMMon").checked = false;
-                }
-            }
         }
 
         else if (variations[i] == "RMC") {
@@ -41,9 +33,6 @@ if (window.location.toString().includes("booking")) {
                 document.getElementById(spansat).remove();
                 document.getElementById(spansun).remove();
             }
-            else {
-                document.getElementById("RMCWed").checked = false;
-            }
         }
 
         else {
@@ -52,9 +41,6 @@ if (window.location.toString().includes("booking")) {
                 document.getElementById(spantue).remove();
                 document.getElementById(spansat).remove();
                 document.getElementById(spansun).remove();
-            }
-            else {
-                document.getElementById("AHFMon").checked = false;
             }
         }
     }
@@ -176,23 +162,4 @@ if (window.location.toString().includes("booking")) {
         }
         document.getElementById('total_price').innerHTML = "Total Price = $" + totalMessage;
     }
-
-    function ValidateForm() {
-        var nameInput = document.forms['BookingForm']['user[name]'].value;
-        console.log(nameInput);
-        var mobileInput = document.forms['BookingForm']['user[mobile]'].value;
-        const nameRegex = "^[-A-Za-z '.]{1,64}$";
-        const mobileRegex = "^61[0-9]{2}[0-9]{6}$";
-        let nameTest = nameInput.match(nameRegex);
-        if (!nameTest) {
-            alert('Full name must not include any numbers or special characters, and must be between 1 and 64 characters');
-            return false;
-        }
-        let mobileTest = mobileInput.match(mobileRegex);
-        if (!mobileTest) {
-            alert('Enter Mobile in the Australian format e.g. 6155222000');
-            return false;
-        }
-    }
-
 }
