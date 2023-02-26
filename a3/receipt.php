@@ -93,8 +93,6 @@
 	$email = $_SESSION['Booking']['user']['email'];
 	$mobile = $_SESSION['Booking']['user']['mobile'];
 
-	debugModule();
-
 	$movie = $_SESSION['Booking']['movie'];
 	$day = $_SESSION['Booking']['day'];
 	$seat_group = $_SESSION['Booking']['SeatGroup'];
