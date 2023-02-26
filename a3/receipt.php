@@ -145,4 +145,14 @@
 <?php
 createFooter();
 ?>
+<footer>
+    <h3>Debug Area</h3>
+    <?php 
+        try {
+            debugModule();
+        } catch(Error $e) {
+            echo "tools.php is unavailable";
+        }
+    ?>
+</footer>
 </html>
