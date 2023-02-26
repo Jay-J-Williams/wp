@@ -129,13 +129,13 @@
 				<ul>
 			</div>
 			<?php if ($movie == "ACT") {
-				echo ("<img src='https://sportshub.cbsistatic.com/i/2022/11/21/4d1fe194-2496-4923-af07-11f47ca498bf/avatar-the-way-of-water-character-posters-1.jpg?auto=webp&width=608&height=900&crop=0.676:1,smart' alt='Avatar 2 Poster'> ");
+				echo ("<img src='https://sportshub.cbsistatic.com/i/2022/11/21/4d1fe194-2496-4923-af07-11f47ca498bf/avatar-the-way-of-water-character-posters-1.jpg?auto=webp&width=608&height=900&crop=0.676:1,smart' alt='Avatar 2 Poster'>");
 			} elseif ($movie == "RMC") {
-				echo ("<img src='https://m.media-amazon.com/images/M/MV5BOWRiNmI1OTItYjc0Zi00YTYwLWI4OTEtMmE0YTNlODJkOTQwXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_FMjpg_UX1000_.jpg' alt='Weird Poster'> ");
+				echo ("<img src='https://m.media-amazon.com/images/M/MV5BOWRiNmI1OTItYjc0Zi00YTYwLWI4OTEtMmE0YTNlODJkOTQwXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_FMjpg_UX1000_.jpg' alt='Weird Poster'>");
 			} elseif ($movie == "FAM") {
-				echo ("<img src=\'https://preview.redd.it/c4s42j0ykjc91.jpg?width=640&crop=smart&auto=webp&s=8129d59e62fbd6e0584626d66d2e052fb9b2ea01' alt='Puss in Boots Poster'> ");
+				echo ("<img src='https://preview.redd.it/c4s42j0ykjc91.jpg?width=640&crop=smart&auto=webp&s=8129d59e62fbd6e0584626d66d2e052fb9b2ea01' alt='Puss in Boots Poster'>");
 			} else {
-				echo ("<img src=\'https://m.media-amazon.com/images/M/MV5BYmRiYjZiYzYtYzNkYy00N2MzLWJmZmItMTZjOGIyOGM5ZWViXkEyXkFqcGdeQXVyMjMyOTAzNjM@._V1_.jpg' alt='Margrete Poster'> ");
+				echo ("<img src='https://m.media-amazon.com/images/M/MV5BYmRiYjZiYzYtYzNkYy00N2MzLWJmZmItMTZjOGIyOGM5ZWViXkEyXkFqcGdeQXVyMjMyOTAzNjM@._V1_.jpg' alt='Margrete Poster'>");
 			}
 			?>
 		</article>
