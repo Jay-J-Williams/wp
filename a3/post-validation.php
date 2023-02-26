@@ -132,12 +132,10 @@ function preFillRadio($day) {
         if ($_GET['movie'] == 'RMC') {
             if ($day == 'wed') {
                 echo "checked = 'checked'";
-                $_POST['day'] = 'wed';
             }
         } else {
             if ($day == 'mon') {
                 echo "checked = 'checked'";
-                $_POST['day'] = 'mon';
             }
         }
     }
