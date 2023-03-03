@@ -39,9 +39,9 @@
 			  <div id="retrieve_bookings_form_div">
 				  <form method="post" action="" id="RetrieveBookingsForm">
 					<p>Retrieve Bookings Here:</p>
-					<input id="mobile" type="tel" name="user[mobile]" placeholder="Mobile Number" pattern="[0-9]{10}" value="" required>
+					<input id="retrieval_mobile" type="tel" name="retrieval[mobile]" placeholder="Mobile Number" pattern="[0-9]{10}" value="" required>
 					<br>
-					<input id="email" type="email" name="user[email]" placeholder="Email" value="" required>
+					<input id="retrieval_email" type="email" name="retrieval[email]" placeholder="Email" value="" required>
 					<br>
 					<input type="submit" value="Submit">
 				  </form>
@@ -50,7 +50,33 @@
 		);
 	}
 
+	// Function that matches the data provided in the retrieve bookings form to the bookings within the file to redirect the user to 'currentbookings.php'
 
+	function receiveBookings() {
+		if (isset($_POST['retrieval']['mobile']) && isset($_POST['retrieval']['email'])) {
+			$mobile = $_POST['retrieval']['mobile'];
+			$email = $_POST['retrieval']['email'];
+			$bookings = [];
+			$booking_number = 1;
+			$file = fopen('bookings.txt', 'r');
+			while(!feof($file)) {
+				$line = fgetcsv($file);
+				if ($line != false) {
+					if ($line[2] == $email && $line[3] == $mobile) {
+						$bookings["Booking $booking_number"] = $line;
+						$booking_number +=1;
+					}
+				}
+			}
+			fclose($file);
+			if (count($bookings) > 1) {
+				$_SESSION['received_bookings'] = $bookings;
+				header('currentbookings.php');
+			} else {
+				echo '<p>No Bookings Were Found</p>';
+			}
+		}
+	}
 
 	// Movie Code Duplication Elimination
 

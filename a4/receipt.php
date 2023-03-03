@@ -143,7 +143,8 @@
 </body>
 </main>
 <?php
-createFooter();
+	createFooter();
+	receiveBookings();
 ?>
 <footer>
     <h3>Debug Area</h3>

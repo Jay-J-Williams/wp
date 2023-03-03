@@ -184,6 +184,7 @@
     </main>
     <?php
         createFooter();
+        receiveBookings();
     ?>
 
     <footer>
