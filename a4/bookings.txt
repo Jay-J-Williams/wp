@@ -1,1 +1,4 @@
 Order Date,Name,Email,Mobile,Movie Code,Day of Movie,Time of Movie,Seat Group,Seat Quantity,Seat Cost,Seat Count,Total,GST
+03-03-2023,dadawd,igursdjig@jfieosujf.com,6185920046,ACT,wed,9pm,seats[STP],5,14.5,72.5,6.59
+03-03-2023,dadawd,igursdjig@jfieosujf.com,6185920046,RMC,fri,12pm,seats[FCP],10,28,280,25.45
+03-03-2023,dadawd,igursdjig@jfieosujf.com,6185920046,ACT,wed,9pm,seats[FCC],2,22,44,4

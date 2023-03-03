@@ -1,6 +1,7 @@
 <?php 
 	require_once 'tools.php';
     createHeadAndHeader();
+    receiveBookings();
 ?>
 
     <nav>
@@ -173,7 +174,6 @@
 
     <?php
         createFooter();
-        receiveBookings();
     ?>
 
     <footer>

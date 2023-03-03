@@ -54,28 +54,110 @@
 
 	function receiveBookings() {
 		if (isset($_POST['retrieval']['mobile']) && isset($_POST['retrieval']['email'])) {
+			if (isset($_SESSION['received_bookings'])) {
+				unset($_SESSION['received_bookings']);
+			}
 			$mobile = $_POST['retrieval']['mobile'];
 			$email = $_POST['retrieval']['email'];
 			$bookings = [];
 			$booking_number = 1;
 			$file = fopen('bookings.txt', 'r');
-			while(!feof($file)) {
-				$line = fgetcsv($file);
-				if ($line != false) {
-					if ($line[2] == $email && $line[3] == $mobile) {
-						$bookings["Booking $booking_number"] = $line;
-						$booking_number +=1;
-					}
+			$line = fgetcsv($file);
+			while($line != false) {
+				if ($line[2] == $email && $line[3] == $mobile) {
+					$bookings["Booking $booking_number"] = $line;
+					$booking_number +=1;
 				}
+				$line = fgetcsv($file);
 			}
 			fclose($file);
-			if (count($bookings) > 1) {
+			if (count($bookings) > 0) {
 				$_SESSION['received_bookings'] = $bookings;
-				header('currentbookings.php');
+				header('location: currentbookings.php');
 			} else {
 				echo '<p>No Bookings Were Found</p>';
 			}
 		}
+	}
+
+	// Function to create a List of Bookings
+
+	function createBookingsList() {
+		$booking_number = 1;
+		foreach ($_SESSION['received_bookings'] as $booking) {
+			echo "<h2>Booking $booking_number</h2> <br>
+				 <p class='ReceivedBookingP'> 
+				 Order Date: $booking[0]<br>
+				 Name: $booking[1]<br>
+				 Email: $booking[2]<br>
+				 Mobile: $booking[3]<br>
+				 Movie Code: $booking[4]<br>
+				 Day of Movie: $booking[5]<br>
+				 Time of Movie: $booking[6]<br>
+				 Seat Group: $booking[7]<br>
+				 Seat Quantity: $booking[8]<br>
+				 Total: $booking[9]<br>
+				 GST: $booking[10]<br><br></p>";
+			$booking_number +=1;
+			echo "<div class='BookingsListPosterDiv'>";
+			if ($booking[4] == "ACT") {
+				echo ("<img src='https://sportshub.cbsistatic.com/i/2022/11/21/4d1fe194-2496-4923-af07-11f47ca498bf/avatar-the-way-of-water-character-posters-1.jpg?auto=webp&width=608&height=900&crop=0.676:1,smart' alt='Avatar 2 Poster'>");
+			} elseif ($booking[4] == "RMC") {
+				echo ("<img src='https://m.media-amazon.com/images/M/MV5BOWRiNmI1OTItYjc0Zi00YTYwLWI4OTEtMmE0YTNlODJkOTQwXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_FMjpg_UX1000_.jpg' alt='Weird Poster'>");
+			} elseif ($booking[4] == "FAM") {
+				echo ("<img src='https://preview.redd.it/c4s42j0ykjc91.jpg?width=640&crop=smart&auto=webp&s=8129d59e62fbd6e0584626d66d2e052fb9b2ea01' alt='Puss in Boots Poster'>");
+			} else {
+				echo ("<img src='https://m.media-amazon.com/images/M/MV5BYmRiYjZiYzYtYzNkYy00N2MzLWJmZmItMTZjOGIyOGM5ZWViXkEyXkFqcGdeQXVyMjMyOTAzNjM@._V1_.jpg' alt='Margrete Poster'>");
+			}
+			$booking_number-= 1;
+			echo "</div>";
+			echo "<div id='submit_booking_form_div'>
+				  <a href='receipt.php?booking=$booking_number' class='SubmitBooking' >Submit Booking
+					<form class='SubmitBookingForm' action='receipt.php' method='get'>
+					</form>
+                  </a></div>";
+		}
+	}
+
+
+
+	function createReceiptAndTicket($name, $email, $mobile, $seat_count, $seat_group, $seat_price, $total_price, $total_price_gst, $day, $time, $movie) {
+		echo "
+			<article id='receipt'>
+			<h2>Receipt</h2>
+			<p>\"Name: $name <br> Email: $email <br> Mobile: $mobile\"
+			</p>
+			<ul>
+				<li><p>\"Number of Seats: $seat_count\"</p></li>
+				<li><p>\"Seat Group: $seat_group\"</p></li>
+				<li><p>\"Seat Price: $seat_price\"</p></li>
+				<li><p>\"Total Price: $total_price\"</p></li>
+				<li><p>\"GST: $total_price_gst\"</p></li>
+				</ul>
+			</article>
+			<div class=\"ticket_div\">
+				<article class=\"ticket\">
+					<h2>Lunardo Cinema Ticket</h2>
+					<div class=\"ticket_content_div\">
+						<ul class=\"ticket_content_list\">
+							<li class=\"ticket_content\"><h5>SEAT GROUP</h5><p><$seat_group</p></li>
+							<li class=\"ticket_content\"><h5>NUMBER OF SEATS</h5><p>$seat_count</p></li>
+							<li class=\"ticket_content\"><h5>DAY OF VIEWING</h5><p>$day</p></li>
+							<li class=\"ticket_content\"><h5>TIME OF VIEWING</h5><p>$time</p></li>
+						<ul>
+					</div>";
+		if ($movie == "ACT") {
+			echo "<img src='https://sportshub.cbsistatic.com/i/2022/11/21/4d1fe194-2496-4923-af07-11f47ca498bf/avatar-the-way-of-water-character-posters-1.jpg?auto=webp&width=608&height=900&crop=0.676:1,smart' alt='Avatar 2 Poster'>";
+		} elseif ($movie == "RMC") {
+			echo "<img src='https://m.media-amazon.com/images/M/MV5BOWRiNmI1OTItYjc0Zi00YTYwLWI4OTEtMmE0YTNlODJkOTQwXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_FMjpg_UX1000_.jpg' alt='Weird Poster'>";
+		} elseif ($movie == "FAM") {
+			echo "<img src='https://preview.redd.it/c4s42j0ykjc91.jpg?width=640&crop=smart&auto=webp&s=8129d59e62fbd6e0584626d66d2e052fb9b2ea01' alt='Puss in Boots Poster'>";
+		} else {
+			echo "<img src='https://m.media-amazon.com/images/M/MV5BYmRiYjZiYzYtYzNkYy00N2MzLWJmZmItMTZjOGIyOGM5ZWViXkEyXkFqcGdeQXVyMjMyOTAzNjM@._V1_.jpg' alt='Margrete Poster'>";
+		}
+		echo "
+				</article>
+			</div>";
 	}
 
 	// Movie Code Duplication Elimination
@@ -206,21 +288,7 @@
 			if ($_GET['movie'] == $movie->code) {
 				$movie -> createMovieInfoSection();
 			}
-			else {
-				$validation+= 1;
-			}
 		}
-			// Move below to post-validation.php
-			/*
-			// Booking -> Index Redirection
-		if ($validation == 4 && !$_GET['movie']=='AHF') {
-			if (count($_POST) == 0) {
-				header("Location: index.php");
-				exit();
-			}
-			// Write an else clause here to redirect to the receipt page
-		}
-		*/
 	}
 
 	// Useful Functions

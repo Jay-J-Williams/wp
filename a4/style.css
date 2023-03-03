@@ -424,3 +424,27 @@ input[type='checkbox'] {
     border-bottom: none;
     border-right: none;
 }
+
+.ReceivedBookingP {
+    text-align: center;
+    margin-inline: 10px;
+    padding: 20px;
+}
+
+#bookings_list {
+    padding: 20px;
+}
+
+.BookingsListPosterDiv {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    justify-items: center;
+}
+
+#submit_booking_form_div {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    justify-items: center;
+}

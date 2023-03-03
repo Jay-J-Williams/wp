@@ -3,6 +3,7 @@
     require_once 'post-validation.php';
     createHeadAndHeader();
     $postErrors = validateBooking();
+    receiveBookings();
 ?>
 
     <nav>
@@ -184,7 +185,6 @@
     </main>
     <?php
         createFooter();
-        receiveBookings();
     ?>
 
     <footer>
