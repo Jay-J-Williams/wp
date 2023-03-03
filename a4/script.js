@@ -1,0 +1,194 @@
+// Booking Page Variations
+if (window.location.toString().includes("booking")) {
+    let variation1 = 'ACT';
+    let variation2 = 'RMC';
+    let variation3 = 'FAM';
+    let variation4 = 'AHF';
+    const variations = [variation1, variation2, variation3, variation4];
+    for (let i = 0; i < variations.length; i++) {
+        let spanmon = variations[i] + "SpanMon";
+        let spantue = variations[i] + "SpanTue";
+        let spanwed = variations[i] + "SpanWed";
+        let spanthu = variations[i] + "SpanThu";
+        let spanfri = variations[i] + "SpanFri";
+        let spansat = variations[i] + "SpanSat";
+        let spansun = variations[i] + "SpanSun";
+        if (variations[i] == "ACT" || variations[i] == "FAM") {
+            if (!(window.location.toString().includes(variations[i]))) {
+                document.getElementById(spanmon).remove();
+                document.getElementById(spantue).remove();
+                document.getElementById(spanwed).remove();
+                document.getElementById(spanthu).remove();
+                document.getElementById(spanfri).remove();
+                document.getElementById(spansat).remove();
+                document.getElementById(spansun).remove();
+            }
+        }
+
+        else if (variations[i] == "RMC") {
+            if (!(window.location.toString().includes(variations[i]))) {
+                document.getElementById(spanwed).remove();
+                document.getElementById(spanthu).remove();
+                document.getElementById(spanfri).remove();
+                document.getElementById(spansat).remove();
+                document.getElementById(spansun).remove();
+            }
+        }
+
+        else {
+            if (!(window.location.toString().includes(variations[i]))) {
+                document.getElementById(spanmon).remove();
+                document.getElementById(spantue).remove();
+                document.getElementById(spansat).remove();
+                document.getElementById(spansun).remove();
+            }
+        }
+    }
+
+}
+
+// Nav Button Click Changes
+
+if (window.location.toString().includes("index")) {
+    var newColor = "orange";
+    function LinkColorChange(link) {
+        if (link == "#AboutUs") {
+            aboutUs = document.getElementById("AboutUsLink");
+            nowShowing = document.getElementById("NowShowingLink");
+            seatsAndPrices = document.getElementById("SeatsAndPricesLink");
+            aboutUs.style.color = newColor;
+            nowShowing.style.color = 'black';
+            seatsAndPrices.style.color = 'black';
+        }
+        else if (link == "#SeatsAndPrices") {
+            aboutUs = document.getElementById("AboutUsLink");
+            nowShowing = document.getElementById("NowShowingLink");
+            seatsAndPrices = document.getElementById("SeatsAndPricesLink");
+            seatsAndPrices.style.color = newColor;
+            aboutUs.style.color = 'black';
+            nowShowing.style.color = 'black';
+        }
+        else if (link == "#NowShowing") {
+            aboutUs = document.getElementById("AboutUsLink");
+            nowShowing = document.getElementById("NowShowingLink");
+            seatsAndPrices = document.getElementById("SeatsAndPricesLink");
+            nowShowing.style.color = newColor;
+            aboutUs.style.color = 'black';
+            seatsAndPrices.style.color = 'black';
+        }
+    }
+}
+
+// Booking Form Calculation
+
+if (window.location.toString().includes("booking")) {
+    function GetSeatPrices() {
+        priceType = GetDay();
+        var BookingForm = document.forms["BookingForm"];
+        var selectedSeatGroup = BookingForm.elements["SeatGroup"];
+        var seatCode = selectedSeatGroup.value;
+        switch (seatCode) {
+            case 'seats[STA]':
+                fullprice = 21.50;
+                discprice = 16.00;
+                break;
+
+            case 'seats[STP]':
+                fullprice = 19.00;
+                discprice = 14.50;
+                break;
+
+            case 'seats[STC]':
+                fullprice = 17.50;
+                discprice = 13.00;
+                break;
+
+            case 'seats[FCA]':
+                fullprice = 31.00;
+                discprice = 25.00;
+                break;
+
+            case 'seats[FCP]':
+                fullprice = 28.00;
+                discprice = 23.50;
+                break;
+
+            case 'seats[FCC]':
+                fullprice = 25.00;
+                discprice = 22.00;
+                break;
+
+            default:
+                fullprice = 0.00;
+                discprice = 0.00;
+        }
+        if (priceType == 'fullprice') {
+            var seatPrice = fullprice;
+        }
+        else {
+            var seatPrice = discprice;
+        }
+        return seatPrice;
+    }
+
+    function GetSeatCount() {
+        var BookingForm = document.forms["BookingForm"];
+        var selectedSeatCount = BookingForm.elements["NumberOfSeats"];
+        var seatCount = selectedSeatCount.value;
+        return seatCount;
+    }
+
+    function GetDay() {
+        var BookingForm = document.forms["BookingForm"];
+        const selectedDay = BookingForm.elements["day"];
+        for (var i = 0; i < selectedDay.length; i++) {
+            if (selectedDay[i].checked) {
+                var priceType = selectedDay[i].dataset.pricing;
+            }
+        }
+        return priceType;
+    }
+
+    function CalculateTotal() {
+        var seatPrice = GetSeatPrices();
+        var seatCount = GetSeatCount();
+        var total = seatPrice * seatCount;
+        var totalMessage = total.toString();
+        if (totalMessage.includes(".5")) {
+            totalMessage += "0";
+        }
+        if (!(totalMessage.includes("."))) {
+            totalMessage +=".00";
+        }
+        document.getElementById('total_price').innerHTML = "Total Price = $" + totalMessage;
+    }
+
+    // Fill in customer information based on HTML5LocalStorage
+
+    if (localStorage.length > 0) {
+        var name = localStorage.getItem("name");
+        var email = localStorage.getItem("email");
+        var mobile = localStorage.getItem("mobile");
+        document.getElementById('name').value = name;
+        document.getElementById('email').value = email;
+        document.getElementById('mobile').value = mobile;
+    }
+
+    // Change Checkbox text based on state
+
+    function ChangeCheckbox() {
+        if (document.getElementById('remember_me').checked) {
+            document.getElementById('checkbox_label').innerHTML = "Forget me";
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var mobile = document.getElementById('mobile').value;
+            localStorage.setItem("name", name);
+            localStorage.setItem("email", email);
+            localStorage.setItem("mobile", mobile);
+        }
+        else {
+            document.getElementById('checkbox_label').innerHTML = "Remember me";
+            localStorage.clear();
+        }
+    }
+}
