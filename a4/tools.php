@@ -29,16 +29,28 @@
 
 	function createFooter() {
 		echo (
-			"<footer>
+			'<footer>
 			  <div>&copy;<script>
 				document.write(new Date().getFullYear());
-			  </script> Email: LunardoCinema@gmail.com, Phone: 555 555 555, Address: 2 Smith Road, Smithville.  Jay Meredith, S3951987, <a href='https://github.com/Jay-J-Williams/wp'>GitHub Link</a>. Last modified <?= date ('Y F d  H:i', filemtime(\$_SERVER['SCRIPT_FILENAME'])); ?>.</div>
+			  </script> Email: LunardoCinema@gmail.com, Phone: 555 555 555, Address: 2 Smith Road, Smithville.  Jay Meredith, S3951987, <a href="https://github.com/Jay-J-Williams/wp">GitHub Link</a>. Last modified <?= date ("Y F d  H:i", filemtime(\$_SERVER["SCRIPT_FILENAME"])); ?>.</div>
 			  <div>Disclaimer: This website is not a real website and is being developed as part of a School of Science Web Programming course at RMIT University in Melbourne, Australia.</div>
-			  <div><button id='toggleWireframeCSS' onclick='toggleWireframe()'>Toggle Wireframe CSS</button></div>
-			  <script src='script.js'></script>
-			</footer>"
+			  <div><button id="toggleWireframeCSS" onclick="toggleWireframe()">Toggle Wireframe CSS</button></div>
+			  <script src="script.js"></script>
+			  <div id="retrieve_bookings_form_div">
+				  <form method="post" action="" id="RetrieveBookingsForm">
+					<p>Retrieve Bookings Here:</p>
+					<input id="mobile" type="tel" name="user[mobile]" placeholder="Mobile Number" pattern="[0-9]{10}" value="" required>
+					<br>
+					<input id="email" type="email" name="user[email]" placeholder="Email" value="" required>
+					<br>
+					<input type="submit" value="Submit">
+				  </form>
+			  </div>
+			</footer>'
 		);
 	}
+
+
 
 	// Movie Code Duplication Elimination
 
